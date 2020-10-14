@@ -47,19 +47,14 @@ const v2={x:u2.x*(m1-m2)/(m1+m2)+u1.x*2*m2/(m1+m2),y:u2.y}
 const vfinal1=rotate(v1,-angle)
 const vfinal2=rotate(v2,-angle)
 
+var ui=Math.random()*10;
 
-if(ball.radius*2<otherball.radius){
-  var temp=otherball.radius/ball.radius;
+if(vfinal2.x>10)vfinal2.x-=ui;
+if(vfinal2.y>10)vfinal2.y-=ui;
 
-  vfinal1.x/=temp;
-  //vfinal1.y/=temp;
-}
-else if(ball.radius>2*otherball.radius){
-  var temp=otherball.radius/ball.radius;
+if(vfinal1.y>10)vfinal1.y-=ui;
+if(vfinal1.x>10)vfinal1.x-=ui;
 
-  //vfinal2.x*=temp;
-  vfinal2.y*=temp;
-}
 ball.velocity.x=vfinal1.x
 ball.velocity.y=vfinal1.y
 
@@ -177,10 +172,10 @@ function init(){
 ballarr=[];
 
 
-for(var i=0;i<15;i++)
+for(var i=0;i<55;i++)
 {
   
-  var radius=Math.random()*30;
+  var radius=Math.random()*30+6;
 var x=Math.random()*innerWidth;
 var y=Math.random()*innerHeight;
 var mass=radius*.1
