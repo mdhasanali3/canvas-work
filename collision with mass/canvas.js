@@ -49,6 +49,11 @@ const vfinal2=rotate(v2,-angle)
 
 var ui=Math.random()*10;
 
+/*    these if condition are life of this code
+      else final velocity(frequency) increase so much 
+      that we can't see       
+
+*/
 if(vfinal2.x>10)vfinal2.x-=ui;
 if(vfinal2.y>10)vfinal2.y-=ui;
 
@@ -101,7 +106,7 @@ c.closePath()
     
 this.velocity={
   x:Math.random()*4,
-  y:Math.random()*2
+  y:Math.random()*4
 }
 
   this.update=ballarr=>{
@@ -150,6 +155,10 @@ var ballarr=[];
 function Animation(){
 
 requestAnimationFrame(Animation);
+
+/*    this clear rect function refresh the canvas otherwise
+        painting will appear
+        */
 c.clearRect(0,0,innerWidth,innerHeight)
 
 for(var i=0;i<ballarr.length;i++)
@@ -161,6 +170,7 @@ for(var i=0;i<ballarr.length;i++)
 
 
 }
+
 function dist(x1,y1,x2,y2)
 {
 return Math.sqrt(Math.pow(x2-x1,2)+Math.pow(y2-y1,2))
@@ -174,6 +184,8 @@ ballarr=[];
 
 for(var i=0;i<55;i++)
 {
+  /* mass related to radius
+  */
   
   var radius=Math.random()*30+6;
 var x=Math.random()*innerWidth;
@@ -183,6 +195,8 @@ var vr=Math.random()*.3;
 if(i>0){
   for(var j=0;j<ballarr.length;j++)
 {
+  //// checking intialy any ball overlap or not
+  //  if overlapping then repositioning it
 if(dist(x,y,ballarr[j].x,ballarr[j].y)-
 (Math.abs(radius+ballarr[j].radius))<3)
 {
