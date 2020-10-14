@@ -43,6 +43,21 @@ var c=canvas.getContext('2d');
 // }
 
 
+var mouse={
+x:undefined,
+y:undefined
+
+}
+
+window.addEventListener('mousemove',function(event){
+
+mouse.x=event.x;
+mouse.y=event.y;
+
+  console.log(mouse);
+
+})
+
 function circle(x,y,dx,dy,radius,vr){
   this.x=x;
   this.y=y;
@@ -54,7 +69,10 @@ function circle(x,y,dx,dy,radius,vr){
 
     c.beginPath();
     c.arc(this.x,this.y,this.radius,0,390,false);
-    c.strokeStyle="red"
+   // c.strokeStyle="red"
+   c.fillStyle=`rgba(${Math.random()*241},${Math.random()*241},${Math.random()*241},1)`;
+   //c.fillStyle='rgba(255,0,0,1)'; 
+   c.fill();
       c.stroke();
    //  console.log(this.x,this.y);
   }
@@ -81,7 +99,7 @@ var circleArr=[];
 
 for(var i=0;i<30;i++){
 var x=Math.random()*600;
-var y=Math.random()*400;
+var y=Math.random()*600;
 var dx=Math.random()*2;
 var dy=Math.random()*2;
 var radius=Math.random()*30+6;
@@ -108,6 +126,7 @@ function animation(){
 
 for(var i=0;i<circleArr.length;i++)
 {
+  //circleArr[i].draw();
   circleArr[i].update();
 }
 
